@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -35,7 +35,7 @@ namespace SyntaxAnalyzer
         {
             decimal d = Decimal.Parse(num, System.Globalization.NumberStyles.Float, new CultureInfo("en-us"));
             string res = "";
-            foreach (var item in FloatToBin((float) d))
+            foreach (var item in ExptoFloat((float) d))
             {
                 res += item;
             }
@@ -68,6 +68,17 @@ namespace SyntaxAnalyzer
                 }
             }
             list.Add(s2);
+
+            return list;
+        }
+
+        private static List<string> ExptoBin(float num)
+        {
+            List<string> list = new List<string>();
+
+            int intPart = (int)num;
+            string s1 = Convert.ToString(intPart, 2);
+            list.Add(s1);
 
             return list;
         }
